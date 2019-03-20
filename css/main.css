@@ -16,7 +16,6 @@
   --gray: #8a8ca5;
   --light-gray: #e7e7e8;
   --brown: rgb(170, 60, 60);
-  --background: rgba(233, 98, 98, 0.2);
 }
 
 html {
@@ -29,7 +28,7 @@ html {
     url(../img//naira-notes.png);
   background-position: center;
   background-size: cover;
-  height: 100vh;
+  padding-bottom: 3rem;
 }
 
 .banner-header {
@@ -105,4 +104,40 @@ html {
   color: black;
   background: var(--light-gray);
   transition: all 0.5s ease-out;
+}
+
+/* Services Section */
+.services {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.services h2 {
+  color: var(--dark);
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 4rem;
+}
+
+.services-text {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.services-column {
+  width: 28%;
+  padding: 1rem;
+  margin: 0 1.5rem;
+  line-height: 2.2rem;
+  background: #e6e4e4;
+  border-radius: 10px;
+}
+
+.services-column h3,
+p {
+  color: var(--dark);
+}
+.services-column h3 {
+  text-transform: uppercase;
 }
