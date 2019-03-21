@@ -171,3 +171,49 @@ p {
   color: var(--dark);
   background: var(--light-gray);
 }
+
+/* Contact section */
+.contacts {
+  background: #e6e4e4;
+  padding-bottom: 2rem;
+}
+
+.contacts-details {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.contacts h2 {
+  color: var(--dark);
+  text-transform: uppercase;
+  padding: 2rem 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.contact-form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-input input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 10px;
+}
+
+.form-btn {
+  padding: 0.5rem 1rem;
+  color: var(--light-gray);
+  background: rgb(96, 96, 233);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  padding: 1rem 0;
+  text-align: center;
+}
