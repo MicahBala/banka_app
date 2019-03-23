@@ -227,6 +227,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
 }
 
 .content-modal {
@@ -234,6 +235,10 @@ footer {
   width: 35%;
   border-radius: 10px;
   padding: 1rem;
+}
+
+.modal-active {
+  visibility: visible;
 }
 
 .signup-header {
@@ -257,7 +262,7 @@ footer {
 }
 
 .signup-form input,
-button {
+.signup-form button {
   display: block;
   padding: 1rem;
   margin: 1rem;
