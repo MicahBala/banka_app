@@ -218,7 +218,8 @@ footer {
 }
 
 /* Modal */
-.bg-modal {
+.bg-modal,
+.bg-login-modal {
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -241,13 +242,15 @@ footer {
   visibility: visible;
 }
 
-.signup-header {
+.signup-header,
+.login-header {
   display: flex;
   justify-content: center;
   color: var(--dark);
 }
 
-.signup {
+.signup,
+.login {
   flex: 2;
   text-align: center;
   padding-top: 1rem;
@@ -262,7 +265,9 @@ footer {
 }
 
 .signup-form input,
-.signup-form button {
+.signup-form button,
+.login-form input,
+.login-form button {
   display: block;
   padding: 1rem;
   margin: 1rem;
@@ -270,7 +275,8 @@ footer {
   border-radius: 5px;
 }
 
-.signup-form button {
+.signup-form button,
+.login-form button {
   background-color: rgb(116, 116, 241);
   color: var(--light-gray);
   cursor: pointer;
