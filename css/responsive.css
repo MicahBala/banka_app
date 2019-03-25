@@ -30,6 +30,30 @@
   .content-modal {
     width: 60%;
   }
+
+  /* User dashboard */
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    top: 4.5rem;
+  }
+
+  .main-area,
+  .dashboard-header {
+    width: 100%;
+  }
+
+  .display-area {
+    padding-top: 10rem;
+  }
+
+  .footer-dashboard {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 700px) {
