@@ -243,14 +243,16 @@ footer {
 }
 
 .signup-header,
-.login-header {
+.login-header,
+.create-account-header {
   display: flex;
   justify-content: center;
   color: var(--dark);
 }
 
 .signup,
-.login {
+.login,
+.create-account {
   flex: 2;
   text-align: center;
   padding-top: 1rem;
@@ -267,7 +269,10 @@ footer {
 .signup-form input,
 .signup-form button,
 .login-form input,
-.login-form button {
+.login-form button,
+.create-account-form input,
+.create-account-form select,
+.create-account-form button {
   display: block;
   padding: 1rem;
   margin: 1rem;
@@ -276,7 +281,8 @@ footer {
 }
 
 .signup-form button,
-.login-form button {
+.login-form button,
+.create-account-form button {
   background-color: rgb(116, 116, 241);
   color: var(--light-gray);
   cursor: pointer;
@@ -342,7 +348,7 @@ footer {
   border: solid 2px green;
 }
 
-/* DIsplay area user-dashboard */
+/* Display area user-dashboard */
 .display-area {
   padding: 6rem 0.5rem 0.5rem 1rem;
   display: flex;

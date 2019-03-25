@@ -20,7 +20,7 @@
           <span class="user-logout">Logout</span>
         </div>
         <div class="display-area">
-          <div class="btn-summary">
+          <div class="btn-summary create-new-account">
             Create New Account
           </div>
           <div class="btn-summary">
@@ -34,7 +34,6 @@
           <h1>LIST OF ACCOUNTS</h1>
           <div class="accounts">
             <div class="list-accounts">
-              <h3>Account Name: Micah Bala</h3>
               <h3>Account Type: Current</h3>
               <h3>Account Number: 0011223344</h3>
               <h3>Balance: N5,000</h3>
@@ -48,5 +47,29 @@
       <p>BANKA &copy; 2019</p>
       <p>Version 1.0</p>
     </footer>
+
+    <!-- New account modal -->
+    <div class="bg-modal">
+      <div class="content-modal">
+        <div class="create-account-header">
+          <h1 class="create-account">CREATE NEW ACCOUNT</h1>
+          <div class="modal-close">+</div>
+        </div>
+        <form action="#" method="post" class="create-account-form">
+          <input type="text" placeholder="First Name" />
+          <input type="text" placeholder="Last Name" />
+          <input type="email" placeholder="E-mail" />
+          <select name="account-type">
+            <option value="" disabled selected hidden>Select Account Type</option>
+            <option value="current">Current</option>
+            <option value="savings">Savings</option>
+          </select>
+          <input type="text" placeholder="Opening Balance" />
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="./js/newAccountModal.js"></script>
   </body>
 </html>
