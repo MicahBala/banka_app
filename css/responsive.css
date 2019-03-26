@@ -31,6 +31,14 @@
     width: 60%;
   }
 
+  .content-transaction-modal {
+    width: 95%;
+  }
+
+  .transaction-table .hide-cell {
+    visibility: hidden;
+  }
+
   /* User dashboard */
   .wrapper {
     flex-direction: column;
