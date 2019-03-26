@@ -219,7 +219,8 @@ footer {
 
 /* Modal */
 .bg-modal,
-.bg-login-modal {
+.bg-login-modal,
+.bg-transaction-modal {
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -244,7 +245,8 @@ footer {
 
 .signup-header,
 .login-header,
-.create-account-header {
+.create-account-header,
+.transaction-header {
   display: flex;
   justify-content: center;
   color: var(--dark);
@@ -252,14 +254,16 @@ footer {
 
 .signup,
 .login,
-.create-account {
+.create-account,
+.transaction-history {
   flex: 2;
   text-align: center;
   padding-top: 1rem;
   letter-spacing: 0.5rem;
 }
 
-.modal-close {
+.modal-close,
+.modal-transaction-close {
   font-weight: bold;
   font-size: 2rem;
   transform: rotate(45deg);
@@ -410,4 +414,58 @@ footer {
   display: flex;
   justify-content: space-between;
   border-top: solid 2px green;
+}
+
+/* Transaction History Modal */
+
+.content-transaction-modal {
+  border: solid 2px green;
+  border-radius: 10px;
+  background: #fff;
+  width: 40%;
+  padding: 1rem;
+}
+
+.transaction-history {
+  color: var(--dark);
+  padding-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.transaction-summary {
+  padding-bottom: 1rem;
+  width: 90%;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.transaction-table {
+  border-collapse: collapse;
+}
+
+table {
+  border: solid 1px var(--light-gray);
+  color: var(--dark);
+}
+
+table,
+th,
+td {
+  padding: 0.5rem 0.5rem;
+}
+th {
+  text-transform: uppercase;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border-left: solid 1px var(--light-gray);
+}
+.transaction-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
 }
