@@ -221,7 +221,8 @@ footer {
 .bg-modal,
 .bg-login-modal,
 .bg-transaction-modal,
-.bg-cashier-modal {
+.bg-cashier-modal,
+.bg-credit-debit-modal {
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -248,7 +249,8 @@ footer {
 .login-header,
 .create-account-header,
 .transaction-header,
-.cashier-header {
+.cashier-header,
+.credit-debit-header {
   display: flex;
   justify-content: center;
   color: var(--dark);
@@ -267,7 +269,8 @@ footer {
 
 .modal-close,
 .modal-transaction-close,
-.modal-cashier-close {
+.modal-cashier-close,
+.modal-credit-debit-close {
   font-weight: bold;
   font-size: 2rem;
   transform: rotate(45deg);
@@ -288,12 +291,39 @@ footer {
   border-radius: 5px;
 }
 
+.credit-debit-account-form input,
+.credit-debit-account-form button,
+.credit-debit-account-form select,
+.credit-debit-account-form label {
+  /* display: block; */
+  padding: 1rem;
+  margin: 1rem;
+  /* width: 50%; */
+  border-radius: 5px;
+}
+
+.credit-debit-account-form label {
+  width: 30%;
+  display: inline-block;
+  text-align: left;
+}
+
+.credit-debit-account-form select,
+.credit-debit-account-form input {
+  width: 50%;
+}
+
 .signup-form button,
 .login-form button,
-.create-account-form button {
+.create-account-form button,
+.credit-debit-account-form button {
   background-color: rgb(116, 116, 241);
   color: var(--light-gray);
   cursor: pointer;
+}
+
+.credit-debit-account-form button {
+  width: 90%;
 }
 
 /* User - Dashboard */

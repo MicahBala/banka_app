@@ -53,7 +53,7 @@
               <td>Current</td>
               <td>20,000</td>
               <td>12/06/2018</td>
-              <td><a href="#">Credit/Debit Account</a></td>
+              <td><a href="#" class="credit-debit">Credit/Debit Account</a></td>
             </tr>
           </table>
         </div>
@@ -131,6 +131,34 @@
             </td>
           </tr>
         </table>
+      </div>
+    </div>
+
+    <!-- Credit/Debit account modal -->
+    <div class="bg-credit-debit-modal">
+      <div class="content-modal">
+        <div class="credit-debit-header">
+          <h1 class="create-account">CREDIT/DEBIT ACCOUNT</h1>
+          <div class="modal-credit-debit-close">+</div>
+        </div>
+        <form action="#" method="post" class="credit-debit-account-form">
+          <label for="old-balance">Old Balance:</label>
+          <input type="text" placeholder="20,000" disabled/>
+
+          <label for="cash">Cash:</label> 
+          <select name="cash-type">
+            <option value="" disabled selected hidden
+              >Select Credit or Debit</option
+            >
+            <option value="current">Credit</option>
+            <option value="savings">Debit</option>
+          </select>
+          
+          <label for="amount">Amount:</label>
+          <input type="text" placeholder="Amount to debit or credit" />
+          
+          <button type="submit">Submit Request</button>
+        </form>
       </div>
     </div>
 

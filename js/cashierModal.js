@@ -3,7 +3,13 @@
 const cashierAcctModal = document.querySelector(".bg-cashier-modal");
 const closeCashierAcctModal = document.querySelector(".modal-cashier-close");
 
+const creditDebitModal = document.querySelector(".bg-credit-debit-modal");
+const closeCreditDebitAcctModal = document.querySelector(
+  ".modal-credit-debit-close"
+);
+
 const accountHistory = document.querySelector(".acct-view");
+const creditDebitAccount = document.querySelector(".credit-debit");
 
 // Transaction History Modal
 accountHistory.addEventListener("click", () => {
@@ -16,10 +22,10 @@ closeCashierAcctModal.addEventListener("click", () => {
 });
 
 // Credit/Debit Account Modal
-// transactionHistory.addEventListener("click", () => {
-//   transactionModal.classList.add("modal-active");
-// });
+creditDebitAccount.addEventListener("click", () => {
+  creditDebitModal.classList.add("modal-active");
+});
 
-// closeTransactionModal.addEventListener("click", () => {
-//   transactionModal.classList.remove("modal-active");
-// });
+closeCreditDebitAcctModal.addEventListener("click", () => {
+  creditDebitModal.classList.remove("modal-active");
+});
