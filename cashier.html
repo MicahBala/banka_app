@@ -47,7 +47,7 @@
               <td>
                 <a href="#" class="acct-view"
                   >2233445566
-                  <span class="tooltip-text">Transaction History</span></a
+                  <span class="tooltip-text">view transaction history</span></a
                 >
               </td>
               <td>Current</td>
@@ -63,5 +63,77 @@
       <p>BANKA &copy; 2019</p>
       <p>Version 1.0</p>
     </footer>
+
+    <!-- Transaction History modal -->
+    <div class="bg-cashier-modal">
+      <div class="content-modal">
+        <div class="cashier-header">
+          <h1 class="cashier-history">Transaction History</h1>
+          <div class="modal-cashier-close">+</div>
+        </div>
+        <div class="transaction-summary">
+          <table>
+            <tr>
+              <th>Account Number:</th>
+              <td>0011223344</td>
+            </tr>
+            <tr>
+              <th>Opening Balance:</th>
+              <td>N34,000</td>
+            </tr>
+            <tr>
+              <th>Total Credit:</th>
+              <td> N6,000</td>
+            </tr>
+            <tr>
+              <th>Total Debit:</th>
+              <td>N3,000</td>
+            </tr>
+            <tr>
+              <th>Closing Balance:</th>
+              <td>N5,000</td>
+            </tr>
+          </table>
+        </div>
+        <table class="transaction-table">
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Credit</th>
+            <th>Debit</th>
+            <th class="hide-cell">Balance</th>
+          </tr>
+          <tr>
+            <td>01/01/2019</td>
+            <td>Withdrawal</td>
+            <td>1,000</td>
+            <td>-</td>
+            <td class="hide-cell">
+              3,000
+            </td>
+          </tr>
+          <tr>
+            <td>01/01/2019</td>
+            <td>Deposit</td>
+            <td>5,000</td>
+            <td>-</td>
+            <td class="hide-cell">
+              8,000
+            </td>
+          </tr>
+          <tr>
+            <td>22/01/2019</td>
+            <td>Withdrawal</td>
+            <td>-</td>
+            <td>3,000</td>
+            <td class="hide-cell">
+              5,000
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="./js/cashierModal.js"></script>
   </body>
 </html>
