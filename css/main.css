@@ -566,3 +566,41 @@ tr:hover {
 .display-account h3 {
   margin-bottom: 1rem;
 }
+
+/* Admin Dashboard */
+.admin-area {
+  padding: 2rem;
+}
+.header-admin-area {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header-admin-area-menu,
+.header-admin-area-status {
+  width: 50%;
+}
+
+.header-admin-area-accounts,
+.header-admin-area-users,
+.header-admin-area-create-user {
+  padding: 0 0 0 1rem;
+}
+
+.admin-area-table {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.table-users {
+  display: none;
+}
+
+.show-table {
+  display: block;
+}
+
+.hide-table {
+  display: none;
+}
