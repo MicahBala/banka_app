@@ -6,7 +6,13 @@ const usersTable = document.querySelector(".table-users");
 const accounts = document.querySelector(".header-admin-area-accounts");
 const accountsTable = document.querySelector(".table-accounts");
 
+const modal = document.querySelector(".bg-delete-account-modal");
+const btnDelete = document.querySelectorAll(".delete-account");
+
 const title = document.querySelector(".header-admin-area-display");
+
+const btnCancel = document.querySelector(".btn-cancel");
+const btnConfirm = document.querySelector(".btn-confirm");
 
 users.addEventListener("click", () => {
   accountsTable.classList.remove("show-table");
@@ -26,4 +32,18 @@ accounts.addEventListener("click", () => {
   usersTable.classList.add("hide-table");
 
   title.innerText = "BANK ACCOUNTS";
+});
+
+btnDelete.forEach(btn => {
+  btn.addEventListener("click", () => {
+    modal.classList.add("modal-active");
+  });
+});
+
+btnCancel.addEventListener("click", () => {
+  modal.classList.remove("modal-active");
+});
+
+btnConfirm.addEventListener("click", () => {
+  modal.classList.remove("modal-active");
 });

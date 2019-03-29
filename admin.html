@@ -50,6 +50,7 @@
                             <th>Balance</th>
                             <th>Created On</th>
                             <th>Credit/Debit</th>
+                            <th>Delete</th>
                         </tr>
                         <tr>
                             <td>1.</td>
@@ -61,6 +62,7 @@
                             <td>20,000</td>
                             <td>12/06/2018</td>
                             <td><a href="#" class="credit-debit">Credit/Debit Account</a></td>
+                            <td><a href="#" class="delete-account">Delete</a></td>
                         </tr>
                         <tr>
                             <td>2.</td>
@@ -75,6 +77,7 @@
                             <td>12,000</td>
                             <td>15/06/2018</td>
                             <td><a href="#" class="credit-debit">Credit/Debit Account</a></td>
+                            <td><a href="#" class="delete-account">Delete</a></td>
                         </tr>
                     </table>
               </div>
@@ -127,6 +130,17 @@
       <p>BANKA &copy; 2019</p>
       <p>Version 1.0</p>
     </footer>
+
+    <!-- Delete Account Modal -->
+    <div class="bg-delete-account-modal">
+        <div class="content-modal admin-modal">
+          <p>You are about to delete an account</p>
+          <div class="btns">
+              <button class="btn-cancel">Cancel</button>
+              <button class="btn-confirm">Confirm</button>
+          </div>
+        </div>
+      </div>
 
     <script src="/js/admin.js"></script>
   </body>

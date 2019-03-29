@@ -222,7 +222,8 @@ footer {
 .bg-login-modal,
 .bg-transaction-modal,
 .bg-cashier-modal,
-.bg-credit-debit-modal {
+.bg-credit-debit-modal,
+.bg-delete-account-modal {
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -250,7 +251,8 @@ footer {
 .create-account-header,
 .transaction-header,
 .cashier-header,
-.credit-debit-header {
+.credit-debit-header,
+.delete-header {
   display: flex;
   justify-content: center;
   color: var(--dark);
@@ -270,7 +272,8 @@ footer {
 .modal-close,
 .modal-transaction-close,
 .modal-cashier-close,
-.modal-credit-debit-close {
+.modal-credit-debit-close,
+.modal-delete-close {
   font-weight: bold;
   font-size: 2rem;
   transform: rotate(45deg);
@@ -603,4 +606,36 @@ tr:hover {
 
 .hide-table {
   display: none;
+}
+
+.admin-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btn-cancel,
+.btn-confirm {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 1rem 2rem;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-cancel {
+  background-color: green;
+  color: #fff;
+  /* margin-right: 1rem; */
+}
+
+.btn-confirm {
+  background-color: red;
+  color: #fff;
+  /* margin-left: 1rem; */
 }
