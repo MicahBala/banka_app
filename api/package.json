@@ -1,0 +1,31 @@
+{
+  "name": "banka",
+  "version": "1.0.0",
+  "description": "An online banking app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicahBala/banka_app.git"
+  },
+  "keywords": [
+    "bank",
+    "deposit",
+    "withdraw"
+  ],
+  "author": "Micah Bala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MicahBala/banka_app/issues"
+  },
+  "homepage": "https://github.com/MicahBala/banka_app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
