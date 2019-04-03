@@ -11,8 +11,7 @@ class UsersController {
     ) {
       return res.status(404).send({
         success: false,
-        message:
-          "email, firstName, lastName, password, type, and isAdmin fields required"
+        message: "email, firstName, lastName, password fields required"
       });
     }
 
@@ -32,6 +31,39 @@ class UsersController {
       success: true,
       message: "user registered successfully",
       user: usersDb[usersDb.length - 1]
+    });
+  }
+
+  // Signin User
+  signinUser(req, res) {
+    if (!req.body.email || !req.body.password) {
+      return res.status(404).send({
+        success: false,
+        message: "email and password required"
+      });
+    }
+
+    const loginUser = usersDb.find(user => {
+      if (
+        user.email === req.body.email &&
+        user.password === req.body.password
+      ) {
+        return res.status(200).send({
+          success: true,
+          message: "user logged in successfully!",
+          loginUser: {
+            id: user.id,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email
+          }
+        });
+      } else {
+        return res.status(404).send({
+          success: false,
+          message: "user does not exist!"
+        });
+      }
     });
   }
 }
