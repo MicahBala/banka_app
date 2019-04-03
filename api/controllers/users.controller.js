@@ -43,7 +43,14 @@ class UsersController {
       });
     }
 
-    const loginUser = usersDb.find(user => {
+    if (usersDb.length === 0) {
+      return res.status(404).send({
+        success: false,
+        message: "database is empty, Create an account"
+      });
+    }
+
+    usersDb.find(user => {
       if (
         user.email === req.body.email &&
         user.password === req.body.password
