@@ -55,6 +55,24 @@ class AccountsController {
       message: `user account is now ${accountToUpdate.status}`,
     });
   }
+
+  //   Delete bank account
+  deleteAccount(req, res) {
+    accountsDb.map((delAccount, index) => {
+      if (delAccount.accountNumber === req.params.acctNum) {
+        accountsDb.splice(index, 1);
+
+        return res.status(200).send({
+          success: true,
+          message: 'Account successfully deleted!',
+        });
+      }
+      return res.status(404).send({
+        success: false,
+        message: 'Account not found',
+      });
+    });
+  }
 }
 
 const accountsController = new AccountsController();
