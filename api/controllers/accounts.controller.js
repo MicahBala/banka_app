@@ -1,20 +1,20 @@
-import uuidv1 from "uuid/v1";
-import accountsDb from "../db/accounts.db";
+import uuidv1 from 'uuid/v1';
+import accountsDb from '../db/accounts.db';
 
 class AccountsController {
   // Create bank account
   createAccount(req, res) {
     if (
-      !req.body.firstName ||
-      !req.body.lastName ||
-      !req.body.email ||
-      !req.body.type
+      !req.body.firstName
+      || !req.body.lastName
+      || !req.body.email
+      || !req.body.type
     ) {
       return res.status(404).json({
         status: 404,
         error: {
-          message: "firstName, lastName, email, and type fields are required"
-        }
+          message: 'firstName, lastName, email, and type fields are required',
+        },
       });
     }
 
@@ -25,7 +25,7 @@ class AccountsController {
       email: req.body.email,
       type: req.body.type,
       openingBalance: 0,
-      status: "active"
+      status: 'active',
     };
 
     accountsDb.push(account);
@@ -33,24 +33,24 @@ class AccountsController {
     return res.status(200).json({
       status: 200,
       data: {
-        message: "Bank Account created successfully",
-        account: accountsDb[accountsDb.length - 1]
-      }
+        message: 'Bank Account created successfully',
+        account: accountsDb[accountsDb.length - 1],
+      },
     });
   }
 
   //   Update bank account status
   accountStatus(req, res) {
     const accountToUpdate = accountsDb.find(
-      account => account.accountNumber === req.params.acctNum
+      account => account.accountNumber === req.params.acctNum,
     );
 
     if (!accountToUpdate) {
       return res.status(404).json({
         status: 404,
         error: {
-          message: "account not found"
-        }
+          message: 'account not found',
+        },
       });
     }
 
@@ -59,8 +59,8 @@ class AccountsController {
     return res.status(200).json({
       status: 200,
       data: {
-        message: `user account is now ${accountToUpdate.status}`
-      }
+        message: `user account is now ${accountToUpdate.status}`,
+      },
     });
   }
 
@@ -73,15 +73,15 @@ class AccountsController {
         return res.status(200).json({
           status: 200,
           data: {
-            message: "Account successfully deleted!"
-          }
+            message: 'Account successfully deleted!',
+          },
         });
       }
       return res.status(404).json({
         status: 404,
         error: {
-          message: "Account not found"
-        }
+          message: 'Account not found',
+        },
       });
     });
   }

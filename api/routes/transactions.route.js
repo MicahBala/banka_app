@@ -1,12 +1,18 @@
-import express from "express";
-import transactionsController from "../controllers/transactions.controller";
+import express from 'express';
+import transactionsController from '../controllers/transactions.controller';
 
 const router = express.Router();
 
-// Update user bank account status
+// Credit user bank account status
 router.post(
-  "/api/v1/transactions/:acctNum",
-  transactionsController.creditAccount
+  '/api/v1/transactions/:acctNum/credit',
+  transactionsController.creditAccount,
+);
+
+// Debit user bank account status
+router.post(
+  '/api/v1/transactions/:acctNum/debit',
+  transactionsController.debitAccount,
 );
 
 export default router;
