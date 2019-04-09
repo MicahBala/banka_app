@@ -1,7 +1,16 @@
-language: node_js
-node_js:
-  - 'stable'
-before_install: 'cd api/'
+after_success:
+  - 'npm run coverage'
+before_install: 'cd app/api'
 cache:
   directories:
-    - 'node_modules'
+    - node_modules
+env:
+  global:
+    - CODECLIMATE_REPO_TOKEN=ff89363a09628e648edba51c45980fd65b6383baf68e051c6aa9f252464cd748
+install:
+  - 'npm install'
+language: node_js
+node_js:
+  - stable
+script:
+  - 'npm run test'

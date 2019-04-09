@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/MicahBala/banka_app.svg?branch=develop)](https://travis-ci.com/MicahBala/banka_app)
+[![Build Status](https://travis-ci.com/MicahBala/banka_app.svg?branch=develop)](https://travis-ci.com/MicahBala/banka_app) [![Coverage Status](https://coveralls.io/repos/github/MicahBala/banka_app/badge.svg?branch=develop)](https://coveralls.io/github/MicahBala/banka_app?branch=develop)
 
 # Banka App
 
