@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/MicahBala/banka_app.svg?branch=develop)](https://travis-ci.com/MicahBala/banka_app)
+
 # Banka App
 
 ## Introduction
