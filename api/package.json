@@ -4,6 +4,7 @@
   "description": "An online banking app",
   "main": "index.js",
   "scripts": {
+    "test": "mocha --require babel-polyfill --require babel-register test/*.js --exit || true",
     "lint": "eslint ../api --fix",
     "start": "nodemon --exec babel-node server.js"
   },
@@ -31,9 +32,13 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
-    "nodemon": "^1.18.10"
+    "mocha": "^6.1.1",
+    "nodemon": "^1.18.10",
+    "supertest": "^4.0.2"
   }
 }

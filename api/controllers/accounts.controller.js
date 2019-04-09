@@ -34,7 +34,7 @@ class AccountsController {
       status: 200,
       data: {
         message: 'Bank Account created successfully',
-        account: accountsDb[accountsDb.length - 1],
+        account: accountsDb,
       },
     });
   }
