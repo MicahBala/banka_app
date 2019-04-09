@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - 'stable'
-before_install: 'cd /api'
+before_install: 'cd api/'
 cache:
   directories:
     - 'node_modules'
