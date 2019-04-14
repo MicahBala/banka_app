@@ -4,7 +4,7 @@
   "description": "An online banking app",
   "main": "index.js",
   "scripts": {
-    "test": "nycmocha --require babel-polyfill --require babel-register test/*.js --exit || true",
+    "test": "nyc mocha --require babel-polyfill --require babel-register test/*.js --exit || true",
     "lint": "eslint ../api --fix",
     "start": "nodemon --exec babel-node server.js",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
@@ -38,11 +38,13 @@
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "mocha": "^6.1.1",
     "nodemon": "^1.18.10",
+    "nyc": "^13.3.0",
     "supertest": "^4.0.2"
   }
 }
