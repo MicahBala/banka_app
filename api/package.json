@@ -8,7 +8,7 @@
     "lint": "eslint ../api --fix",
     "start": "node_modules/.bin/nodemon --exec babel-node server.js",
     "heroku-postbuild": "npm install",
-    "server": "babel-node app.js",
+    "server": "babel-node server.js",
     "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
     "coveralls-coverage": "coveralls < lcov.info",
     "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
