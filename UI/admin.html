@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Banka | Dashboard</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="sidebar">
+        <h1>BANKA</h1>
+        <p>reliable banking</p>
+      </section>
+      <section class="main-area">
+        <div class="dashboard-header">
+          <span class="welcome">Welcome ADMIN!</span>
+          <span class="user-logout">Logout</span>
+        </div>
+
+        <div class="search-area">
+            <h3>
+                Enter Search parameter (account number or user Id) below and view result.
+            </h3>
+            <form action="#" class="account-search-form">
+                <input type="text" placeholder="Enter account number or user id" />
+                <button>search</button>
+            </form>
+        </div>
+        <div class="admin-area">
+            <div class="header-admin-area">
+                <div class="header-admin-area-status">
+                    <h2 class="header-admin-area-display">Bank Accounts</h2>
+                </div>
+                <div class="header-admin-area-menu">
+                    <a href="#" class="header-admin-area-accounts">Accounts</a>
+                    <a href="#" class="header-admin-area-users">Users</a>
+                    <a href="#" class="header-admin-area-create-user">Create User</a>
+                </div>
+            <div class="admin-area-table">
+              <div class="table-accounts">
+                    <table>
+                        <tr>
+                            <th>S/NO</th>
+                            <th>Name</th>
+                            <th>Number</th>
+                            <th>Type</th>
+                            <th>Balance</th>
+                            <th>Created On</th>
+                            <th>Credit/Debit</th>
+                            <th>Delete</th>
+                        </tr>
+                        <tr>
+                            <td>1.</td>
+                            <td>Micah Bala</td>
+                            <td>
+                            <a href="#" class="acct-view">223344556</a>
+                            </td>
+                            <td>Current</td>
+                            <td>20,000</td>
+                            <td>12/06/2018</td>
+                            <td><a href="#" class="credit-debit">Credit/Debit Account</a></td>
+                            <td><a href="#" class="delete-account">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>2.</td>
+                            <td>Joshua Keziah</td>
+                            <td>
+                            <a href="#" class="acct-view"
+                                >3344556677
+                                </a
+                            >
+                            </td>
+                            <td>Current</td>
+                            <td>12,000</td>
+                            <td>15/06/2018</td>
+                            <td><a href="#" class="credit-debit">Credit/Debit Account</a></td>
+                            <td><a href="#" class="delete-account">Delete</a></td>
+                        </tr>
+                    </table>
+              </div>
+              <div class="table-users">
+                  <table>
+                      <tr>
+                          <th>S/NO</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>username</th>
+                          <th>password</th>
+                          <th>email</th>
+                          <th>active</th>
+                      </tr>
+                      <tr>
+                          <td>1.</td>
+                          <td>Micah</td>
+                          <td>Bala</td>
+                          <td>micahbala</td>
+                          <td>micah1234</td>
+                          <td>micahb@mymail.com</td>
+                          <td>
+                              <select name="active" id="active">
+                                  <option value="Yes">YES</option>
+                                  <option value="No">NO</option>
+                              </select>
+                          </td>
+                      </tr>
+                    <tr>
+                      <td>2.</td>
+                      <td>Keziah</td>
+                      <td>John</td>
+                      <td>kizzyj</td>
+                      <td>kizzyj1234</td>
+                      <td>kizzyj@mymail.com</td>
+                      <td>
+                          <select name="active" id="active">
+                              <option value="Yes">YES</option>
+                              <option value="No">NO</option>
+                          </select>
+                      </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer-dashboard">
+      <p>BANKA &copy; 2019</p>
+      <p>Version 1.0</p>
+    </footer>
+
+    <!-- Delete Account Modal -->
+    <div class="bg-delete-account-modal">
+        <div class="content-modal admin-modal">
+          <p>You are about to delete an account</p>
+          <div class="btns">
+              <button class="btn-cancel">Cancel</button>
+              <button class="btn-confirm">Confirm</button>
+          </div>
+        </div>
+      </div>
+
+    <script src="/js/admin.js"></script>
+  </body>
+</html>

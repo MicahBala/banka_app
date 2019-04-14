@@ -1,0 +1,48 @@
+{
+  "name": "banka",
+  "version": "1.0.0",
+  "description": "An online banking app",
+  "main": "index.js",
+  "scripts": {
+    "test": "nycmocha --require babel-polyfill --require babel-register test/*.js --exit || true",
+    "lint": "eslint ../api --fix",
+    "start": "nodemon --exec babel-node server.js",
+    "generate-lcov": "nyc report --reporter=text-lcov > lcov.info",
+    "coveralls-coverage": "coveralls < lcov.info",
+    "codeclimate-coverage": "codeclimate-test-reporter < lcov.info",
+    "coverage": "nyc npm test && npm run generate-lcov && npm run coveralls-coverage && npm run codeclimate-coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MicahBala/banka_app.git"
+  },
+  "keywords": [
+    "bank",
+    "deposit",
+    "withdraw"
+  ],
+  "author": "Micah Bala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MicahBala/banka_app/issues"
+  },
+  "homepage": "https://github.com/MicahBala/banka_app#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^6.1.1",
+    "nodemon": "^1.18.10",
+    "supertest": "^4.0.2"
+  }
+}

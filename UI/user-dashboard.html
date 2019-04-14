@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Banka | Dashboard</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <section class="sidebar">
+        <h1>BANKA</h1>
+        <p>reliable banking</p>
+      </section>
+      <section class="main-area">
+        <div class="dashboard-header">
+          <span class="welcome">Welcome USER!</span>
+          <span class="user-logout">Logout</span>
+        </div>
+        <div class="display-area">
+          <div class="btn-summary create-new-account">
+            Create New Account
+          </div>
+          <div class="btn-summary">
+            Apply for loans
+          </div>
+          <div class="btn-summary btn-list-accounts">
+            List of Accounts
+          </div>
+        </div>
+        <div class="details-area">
+          <h1>LIST OF ACCOUNTS</h1>
+          <div class="accounts">
+            <div class="list-accounts">
+              <h3>Account Type: Current</h3>
+              <h3>Account Number: 0011223344</h3>
+              <h3>Balance: N5,000</h3>
+              <h3><a href="#" class="viewTransaction">Transaction History</a></h3>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer class="footer-dashboard">
+      <p>BANKA &copy; 2019</p>
+      <p>Version 1.0</p>
+    </footer>
+
+    <!-- New account modal -->
+    <div class="bg-modal">
+      <div class="content-modal">
+        <div class="create-account-header">
+          <h1 class="create-account">CREATE NEW ACCOUNT</h1>
+          <div class="modal-close">+</div>
+        </div>
+        <form action="#" method="post" class="create-account-form">
+          <input type="text" placeholder="First Name" />
+          <input type="text" placeholder="Last Name" />
+          <input type="email" placeholder="E-mail" />
+          <select name="account-type">
+            <option value="" disabled selected hidden
+              >Select Account Type</option
+            >
+            <option value="current">Current</option>
+            <option value="savings">Savings</option>
+          </select>
+          <input type="text" placeholder="Opening Balance" />
+          <button type="submit">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Transaction History modal -->
+    <div class="bg-transaction-modal">
+      <div class="content-transaction-modal">
+        <div class="transaction-header">
+          <h1 class="transaction-history">Transaction History</h1>
+          <div class="modal-transaction-close">+</div>
+        </div>
+        <div class="transaction-summary">
+          <table>
+            <tr>
+              <th>Account Number:</th>
+              <td>0011223344</td>
+            </tr>
+            <tr>
+              <th>Opening Balance:</th>
+              <td>N34,000</td>
+            </tr>
+            <tr>
+              <th>Total Credit:</th>
+              <td> N6,000</td>
+            </tr>
+            <tr>
+              <th>Total Debit:</th>
+              <td>N3,000</td>
+            </tr>
+            <tr>
+              <th>Closing Balance:</th>
+              <td>N5,000</td>
+            </tr>
+          </table>
+        </div>
+        <table class="transaction-table">
+          <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Credit</th>
+            <th>Debit</th>
+            <th class="hide-cell">Balance</th>
+          </tr>
+          <tr>
+            <td>01/01/2019</td>
+            <td>Withdrawal</td>
+            <td>1,000</td>
+            <td>-</td>
+            <td class="hide-cell">
+              3,000
+            </td>
+          </tr>
+          <tr>
+            <td>01/01/2019</td>
+            <td>Deposit</td>
+            <td>5,000</td>
+            <td>-</td>
+            <td class="hide-cell">
+              8,000
+            </td>
+          </tr>
+          <tr>
+            <td>22/01/2019</td>
+            <td>Withdrawal</td>
+            <td>-</td>
+            <td>3,000</td>
+            <td class="hide-cell">
+              5,000
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <script src="./js/accountModal.js"></script>
+  </body>
+</html>
