@@ -38,6 +38,7 @@
   "devDependencies": {
     "babel-polyfill": "^6.26.0",
     "chai": "^4.2.0",
+    "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
