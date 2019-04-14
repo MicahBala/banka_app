@@ -13,13 +13,13 @@ This project is part of the pre-bootcampAndela Developer Challenge.
 
 ## Navigating the page
 
-User visits the landing page at [Banka App](https://micahbala.github.io/banka_app) click on signup to create and account or login to see your dashboard.
+User visits the landing page at [Banka App](https://micahbala.github.io/banka_app/UI) click on signup to create and account or login to see your dashboard.
 The different pages of the site includes
 
-- [Home page](https://micahbala.github.io/banka_app)
-- [User Dashboard](https://micahbala.github.io/banka_app/user-dashboard.html)
-- [Admin Dashboard](https://micahbala.github.io/banka_app/admin.html)
-- [Cashier Dashboard](https://micahbala.github.io/banka_app/cashier.html)
+- [Home page](https://micahbala.github.io/banka_app/UI)
+- [User Dashboard](https://micahbala.github.io/banka_app/UI/user-dashboard.html)
+- [Admin Dashboard](https://micahbala.github.io/banka_app/UI/admin.html)
+- [Cashier Dashboard](https://micahbala.github.io/banka_app/UI/cashier.html)
 
 ## Features
 
