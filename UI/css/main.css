@@ -199,6 +199,11 @@ footer {
   letter-spacing: 0.5rem;
 }
 
+.create-account {
+  font-size: 1rem;
+  padding-bottom: 1rem;
+}
+
 .modal-close,
 .modal-transaction-close,
 .modal-cashier-close,
@@ -233,7 +238,8 @@ footer {
 }
 
 .signup-form label,
-.login-form label {
+.login-form label,
+.create-account-form label {
   color: var(--dark);
   font-weight: bold;
 }
@@ -274,7 +280,8 @@ footer {
 }
 
 .login-form .formBtn:hover,
-.signup-form .formBtn:hover {
+.signup-form .formBtn:hover,
+.create-account-form .formBtnCreateAccount:hover {
   box-shadow: inset 0 0 10px var(--dark);
 }
 
@@ -283,71 +290,110 @@ footer {
   display: flex;
   width: 100%;
   height: 100vh;
+  background-color: #dce3f3;
 }
 
 .sidebar {
-  background: var(--dark);
+  /* background: var(--dark); */
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   width: 15%;
-}
-
-.sidebar h1 {
-  letter-spacing: 0.5rem;
-  font-size: 2rem;
-  color: var(--light-gray);
-}
-
-.sidebar p {
-  color: var(--light-gray);
-  letter-spacing: 0.2rem;
-}
-
-/* Main Area user-dashboard */
-.main-area {
-  width: 75%;
-}
-
-.dashboard-header {
-  background: var(--light-gray);
-  position: fixed;
-  width: 85%;
   padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  border-bottom: solid 2px green;
+  background-color: #fff;
 }
 
-.welcome,
-.user-logout {
+.sidebar a {
+  color: var(--dark);
+  text-decoration: none;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--dark);
+  border-radius: 5px;
+}
+
+.sidebar a:hover {
+  background-color: #dce3f3;
+}
+
+.sidebar .active-menu {
+  background-color: #dce3f3;
+  color: rgb(116, 116, 241);
+}
+
+.account-summary {
+  padding: 0.5rem;
+  margin: 0 0 2rem 2rem;
+  line-height: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-summary span {
+  padding: 0.5rem 0 0.5rem 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0.3rem 0;
+  width: 20rem;
+}
+
+.account-summary span:hover {
   font-weight: bold;
+}
+.main-area h1 {
+  margin: 2rem 0 0 2rem;
+  font-size: 2rem;
+}
+
+.account-summary span {
   color: var(--dark);
 }
 
-.user-logout {
-  border: solid 2px #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+.transaction-area {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 2rem;
 }
 
-.user-logout:hover {
-  color: green;
-  border: solid 2px green;
+.transaction-table {
+  /* border: solid 1px var(--light-gray); */
+  color: var(--dark);
+  border-collapse: collapse;
 }
 
-/* Display area user-dashboard */
-.display-area {
-  padding: 6rem 0.5rem 0.5rem 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+.transaction-table,
+th,
+td {
+  padding: 1rem 2rem;
 }
 
-.btn-summary {
+td {
+  border-bottom: #8a8ca5;
+}
+
+.transaction-table th {
+  background-color: #dce3f3;
+}
+
+.transaction-table tr:hover {
+  background-color: #dce3f3;
+}
+
+.transaction-table tr {
+  border-bottom: solid 1px #dce3f3;
+}
+
+/* table,
+th,
+td {
+  padding: 0.5rem 0.5rem;
+}
+th {
+  text-transform: uppercase;
+} */
+
+/* .btn-summary {
   font-weight: bold;
   color: var(--dark);
   text-transform: uppercase;
@@ -400,61 +446,61 @@ footer {
   display: flex;
   justify-content: space-between;
   border-top: solid 2px green;
-}
+} */
 
 /* Transaction History Modal */
 
-.content-transaction-modal {
+/* .content-transaction-modal {
   border: solid 2px green;
   border-radius: 10px;
   background: #fff;
   width: 40%;
   padding: 1rem;
-}
+} */
 
-.transaction-history {
+/* .transaction-history {
   color: var(--dark);
   padding-bottom: 1rem;
   text-transform: uppercase;
-}
+} */
 
-.transaction-summary {
+/* .transaction-summary {
   padding-bottom: 1rem;
   width: 90%;
   font-weight: bold;
   font-size: 0.8rem;
   text-align: left;
-}
+} */
 
-.transaction-table {
+/* .transaction-table {
   border-collapse: collapse;
-}
+} */
 
-table {
+/* table {
   border: solid 1px var(--light-gray);
   color: var(--dark);
-}
+} */
 
-table,
+/* table,
 th,
 td {
   padding: 0.5rem 0.5rem;
 }
 th {
   text-transform: uppercase;
-}
+} */
 
-.transaction-table th,
+/* .transaction-table th,
 .transaction-table td {
   border-left: solid 1px var(--light-gray);
-}
-.transaction-table tr:nth-child(even) {
+} */
+/* .transaction-table tr:nth-child(even) {
   background-color: #f2f2f2;
-}
+} */
 
-tr:hover {
+/* tr:hover {
   background-color: #f5f5f5;
-}
+} */
 
 /* Cashier page */
 .search-area {
