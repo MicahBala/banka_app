@@ -288,7 +288,7 @@ footer {
 .sidebar {
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 20%;
   padding: 1rem;
   background-color: #fff;
 }
@@ -404,28 +404,16 @@ td {
   cursor: pointer;
 }
 
-.tooltip-text {
-  /* visibility: hidden; */
-  display: none;
-  width: 200px;
-  border: solid 1px green;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.1);
-  color: var(--dark);
-  padding: 0.3rem 0.5rem;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s;
-}
-
 .credit-account,
-.debit-account {
+.debit-account,
+.delete-account {
   text-decoration: none;
   color: var(--dark);
 }
 
 .credit-account:hover,
-.debit-account:hover {
+.debit-account:hover,
+.delete-account:hover {
   text-decoration: underline;
   color: rgb(116, 116, 241);
 }
@@ -435,31 +423,6 @@ td {
 }
 
 /* Admin Dashboard */
-.admin-area {
-  padding: 2rem;
-}
-.header-admin-area {
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.header-admin-area-menu,
-.header-admin-area-status {
-  width: 50%;
-}
-
-.header-admin-area-accounts,
-.header-admin-area-users,
-.header-admin-area-create-user {
-  padding: 0 0 0 1rem;
-}
-
-.admin-area-table {
-  width: 100%;
-  margin-top: 0.5rem;
-}
-
 .table-users {
   display: none;
 }

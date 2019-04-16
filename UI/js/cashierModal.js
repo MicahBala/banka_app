@@ -12,7 +12,7 @@ const debitAccount = document.querySelector('.debit-account');
 
 const transactionTitle = document.querySelector('.credit-account-title');
 const creditAmount = document.getElementById('credit-amount-label');
-const creditBtn = document.getElementById('credi-account-btn');
+const creditBtn = document.getElementById('credit-account-btn');
 
 // Credit Account Modal
 creditAccount.addEventListener('click', () => {
