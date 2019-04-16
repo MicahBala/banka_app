@@ -7,15 +7,17 @@
     <title>Banka | Dashboard</title>
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/responsive.css" />
-    <script src="https://use.fontawesome.com/a7a2ff373b.js"></script>
-    <body>
+  </head>
+  <script src="https://use.fontawesome.com/a7a2ff373b.js"></script>
+  <body>
     <div class="wrapper">
       <section class="sidebar">
-        <a class='active-menu dashboard-menu' href="user-dashboard.html">
-            <i class="fa fa-university" aria-hidden="true"></i>&nbsp; BANKA
+        <a class="active-menu dashboard-menu" href="user-dashboard.html">
+          <i class="fa fa-university" aria-hidden="true"></i>&nbsp; BANKA
         </a>
         <a class="create-new-account" href="#"
-          ><i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp; New Account</a
+          ><i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp; New
+          Account</a
         >
         <a href="index.html"
           ><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a
@@ -24,48 +26,55 @@
       <section class="main-area">
         <h1>Summary</h1>
         <div class="account-summary">
-            <span>Account Type: Current</span>
-            <span>Account Number: 0011223344</span>
-            <span>Balance: N5,000</span>
+          <span>Account Type: Current</span>
+          <span>Account Number: 0011223344</span>
+          <span>Balance: N5,000</span>
         </div>
         <div class="transaction-area">
-            <table class="transaction-table">
-              <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Credit</th>
-                <th>Debit</th>
-                <th class="hide-cell">Balance</th>
-              </tr>
-              <tr>
-                <td>01/01/2019</td>
-                <td>Withdrawal</td>
-                <td>1,000</td>
-                <td>-</td>
-                <td class="hide-cell">
-                  3,000
-                </td>
-              </tr>
-              <tr>
-                <td>01/01/2019</td>
-                <td>Deposit</td>
-                <td>5,000</td>
-                <td>-</td>
-                <td class="hide-cell">
-                  8,000
-                </td>
-              </tr>
-              <tr>
-                <td>22/01/2019</td>
-                <td>Withdrawal</td>
-                <td>-</td>
-                <td>3,000</td>
-                <td class="hide-cell">
-                  5,000
-                </td>
-              </tr>
-            </table>
+          <table class="transaction-table">
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Credit</th>
+              <th>Debit</th>
+              <th class="hide-cell">Balance</th>
+            </tr>
+            <tr>
+              <td>01/01/2019</td>
+              <td>Withdrawal</td>
+              <td>1,000</td>
+              <td>-</td>
+              <td class="hide-cell">
+                3,000
+              </td>
+            </tr>
+            <tr>
+              <td>01/01/2019</td>
+              <td>Deposit</td>
+              <td>5,000</td>
+              <td>-</td>
+              <td class="hide-cell">
+                8,000
+              </td>
+            </tr>
+            <tr>
+              <td>22/01/2019</td>
+              <td>Withdrawal</td>
+              <td>-</td>
+              <td>3,000</td>
+              <td class="hide-cell">
+                5,000
+              </td>
+            </tr>
+          </table>
         </div>
+      </section>
+    </div>
+
+    <footer class="footer-dashboard">
+      <p>BANKA &copy; 2019</p>
+      <p>Version 1.0</p>
+    </footer>
 
     <!-- New account modal -->
     <div class="bg-modal">
@@ -91,7 +100,9 @@
           </select>
           <label for="openingBalance">OPENING BALANCE</label>
           <input type="text" />
-          <button class="formBtnCreateAccount" type="submit">Create Account</button>
+          <button class="formBtnCreateAccount" type="submit">
+            Create Account
+          </button>
         </form>
       </div>
     </div>
@@ -115,7 +126,7 @@
             </tr>
             <tr>
               <th>Total Credit:</th>
-              <td> N6,000</td>
+              <td>N6,000</td>
             </tr>
             <tr>
               <th>Total Debit:</th>
