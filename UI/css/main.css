@@ -166,7 +166,7 @@ footer {
   background: var(--light-gray);
   width: 35%;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1rem 2rem;
 }
 
 .modal-active {
@@ -254,6 +254,11 @@ footer {
 
 .credit-debit-account-form button {
   width: 90%;
+}
+
+.login-form .formBtn:hover,
+.signup-form .formBtn:hover {
+  box-shadow: inset 0 0 10px var(--dark);
 }
 
 /* User - Dashboard */
