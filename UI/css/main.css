@@ -166,7 +166,10 @@ footer {
   background: var(--light-gray);
   width: 35%;
   border-radius: 10px;
-  padding: 1rem 2rem;
+  padding-left: 4rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 .modal-active {
@@ -215,10 +218,24 @@ footer {
 .create-account-form select,
 .create-account-form button {
   display: block;
-  padding: 1rem;
-  margin: 1rem;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
   width: 90%;
   border-radius: 5px;
+}
+
+.signup-form input:focus,
+.login-form input:focus,
+.create-account-form input:focus,
+.create-account-form select:focus {
+  outline: 0;
+  box-shadow: 0 0 0 1px rgb(116, 116, 241);
+}
+
+.signup-form label,
+.login-form label {
+  color: var(--dark);
+  font-weight: bold;
 }
 
 .credit-debit-account-form input,
