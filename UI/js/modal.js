@@ -7,6 +7,7 @@ const loginModal = document.querySelector('.bg-login-modal');
 const closeModal = document.querySelectorAll('.modal-close');
 const formSignUp = document.querySelector('.formBtnSignup');
 const formLogin = document.querySelector('.formBtnLogin');
+const userRole = document.getElementById('user-role');
 
 signUp.forEach(btn => {
   btn.addEventListener('click', () => {
@@ -30,5 +31,16 @@ formSignUp.addEventListener('click', () => {
 });
 
 formLogin.addEventListener('click', () => {
-  window.location.href = 'cashier.html';
+  console.log(userRole.value);
+  if (userRole.value == 'admin') {
+    window.location.href = 'admin.html';
+  }
+
+  if (userRole.value == 'cashier') {
+    window.location.href = 'cashier.html';
+  }
+
+  if (userRole.value == 'client') {
+    window.location.href = 'user-dashboard.html';
+  }
 });
