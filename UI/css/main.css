@@ -166,10 +166,10 @@ footer {
   background: var(--light-gray);
   width: 35%;
   border-radius: 10px;
-  padding-left: 4rem;
-  padding-right: 2rem;
-  padding-bottom: 2rem;
-  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-active {
@@ -183,9 +183,11 @@ footer {
 .cashier-header,
 .credit-debit-header,
 .delete-header {
+  padding-top: 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   color: var(--dark);
+  width: 85%;
 }
 
 .signup,
@@ -215,6 +217,12 @@ footer {
   cursor: pointer;
 }
 
+.login-form,
+.signup-form {
+  padding: 0 0 2rem 2rem;
+  width: 90%;
+}
+
 .signup-form input,
 .signup-form button,
 .login-form input,
@@ -224,7 +232,7 @@ footer {
 .create-account-form button {
   display: block;
   padding: 0.7rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   width: 90%;
   border-radius: 5px;
 }
