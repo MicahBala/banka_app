@@ -39,20 +39,35 @@
     visibility: hidden;
   }
 
-  /* User dashboard */
-  .wrapper {
-    flex-direction: column;
+  .hide-text {
+    display: none;
+  }
+
+  .sidebar a {
+    padding: 0.4rem;
   }
 
   .sidebar {
-    width: 100%;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .transaction-area {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .wrapper {
+    /* flex-direction: column; */
+  }
+
+  .sidebar {
+    width: 10%;
     position: fixed;
     top: 4.5rem;
   }
 
-  .main-area,
-  .dashboard-header {
-    width: 100%;
+  .main-area {
+    width: 90%;
   }
 
   .display-area {

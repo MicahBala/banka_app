@@ -12,104 +12,126 @@
   <body>
     <div class="wrapper">
       <section class="sidebar">
-          <a class="active-menu dashboard-menu" href="user-dashboard.html">
-              <i class="fa fa-university" aria-hidden="true"></i>&nbsp; BANKA
-            </a>
-            <a class="header-admin-area-users" href="#"
+        <a class="active-menu dashboard-menu" href="user-dashboard.html">
+          <i class="fa fa-university" aria-hidden="true"></i>&nbsp;
+          <span class="hide-text">BANKA</span>
+        </a>
+        <a class="header-admin-area-users" href="#"
           ><i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp;
-          User Accounts</a
+          <span class="hide-text">User Accounts</span></a
         >
         <a class="header-admin-area-accounts" href="#"
-          ><i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp; Bank Accounts</a
+          ><i class="fa fa-archive" aria-hidden="true"></i>&nbsp;
+          <span class="hide-text">Bank Accounts</span></a
         >
-            <a href="index.html"
-              ><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a
-            >
+        <a class="header-admin-area-add-user" href="#"
+          ><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;
+          <span class="hide-text">Add a User</span></a
+        >
+        <a href="index.html"
+          ><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;
+          <span class="hide-text">Logout</span></a
+        >
       </section>
       <section class="transaction-area">
         <div class="search-area">
-            <h3>
-                Enter account number below and view result.
-            </h3>
-            <form action="#" class="searchbox">
-                <input
-                  id="input-search"
-                  type="text"
-                  placeholder="Enter account number"
-                />
-                <input id="input-btn" type="submit" value="search" />
-              </form>
+          <h3>
+            Enter account number below and view result.
+          </h3>
+          <form action="#" class="searchbox">
+            <input
+              id="input-search"
+              type="text"
+              placeholder="Enter account number"
+            />
+            <input id="input-btn" type="submit" value="search" />
+          </form>
         </div>
         <div class="admin-area">
-            <div class="header-admin-area">
-                <div class="header-admin-area-status">
-                    <h2 class="header-admin-area-display">Bank Accounts</h2>
-                </div>
+          <div class="header-admin-area">
+            <div class="header-admin-area-status">
+              <h2 class="header-admin-area-display">Bank Accounts</h2>
+            </div>
             <div>
               <div class="table-accounts">
-                    <table class="transaction-table">
-                        <tr>
-                            <th>S/NO</th>
-                            <th>Name</th>
-                            <th>Account Number</th>
-                            <th>Type</th>
-                            <th>Balance</th>
-                            <th>Delete Account</th>
-                        </tr>
-                        <tr>
-                            <td>1.</td>
-                            <td>Micah Bala</td>
-                            <td>223344556</td>
-                            <td>Current</td>
-                            <td>20,000</td>
-                            <td><a href="#" class="delete-account">delete</a></td>
-                        </tr>
-                        <tr>
-                            <td>2.</td>
-                            <td>Joshua Keziah</td>
-                            <td>3344556677</td>
-                            <td>Current</td>
-                            <td>12,000</td>
-                            <td><a href="#" class="delete-account">delete</a></td>
-                        </tr>
-                    </table>
+                <table class="transaction-table">
+                  <tr>
+                    <th>S/NO</th>
+                    <th>Name</th>
+                    <th>Account Number</th>
+                    <th>Type</th>
+                    <th>Balance</th>
+                    <th>Delete</th>
+                  </tr>
+                  <tr>
+                    <td>1.</td>
+                    <td>Micah Bala</td>
+                    <td>223344556</td>
+                    <td>Current</td>
+                    <td>20,000</td>
+                    <td class="centered-cell">
+                      <a href="#" class="delete-account">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>Joshua Keziah</td>
+                    <td>3344556677</td>
+                    <td>Current</td>
+                    <td>12,000</td>
+                    <td class="centered-cell">
+                      <a href="#" class="delete-account centered-cell">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </table>
               </div>
               <div class="table-users">
-                  <table class="transaction-table">
-                      <tr>
-                          <th>S/NO</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>username</th>
-                          <th>password</th>
-                          <th>email</th>
-                          <th>deactivate</th>
-                      </tr>
-                      <tr>
-                          <td>1.</td>
-                          <td>Micah</td>
-                          <td>Bala</td>
-                          <td>micahbala</td>
-                          <td>micah1234</td>
-                          <td>micahb@mymail.com</td>
-                          <td>
-                              <input type="checkbox" name="" id="">
-                          </td>
-                      </tr>
-                    <tr>
-                      <td>2.</td>
-                      <td>Keziah</td>
-                      <td>John</td>
-                      <td>kizzyj</td>
-                      <td>kizzyj1234</td>
-                      <td>kizzyj@mymail.com</td>
-                      <td>
-                          <input type="checkbox" name="" id="">
-                      </td>
-                    </tr>
+                <table class="transaction-table">
+                  <tr>
+                    <th>S/NO</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                  </tr>
+                  <tr>
+                    <td>1.</td>
+                    <td>Micah</td>
+                    <td>Bala</td>
+                    <td>micahbala</td>
+                    <td>micah1234</td>
+                    <td>micahb@mymail.com</td>
+                    <td>
+                      <select name="account-status" class="account-status">
+                        <option value="active">active</option>
+                        <option value="dormant">dormant</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2.</td>
+                    <td>Keziah</td>
+                    <td>John</td>
+                    <td>kizzyj</td>
+                    <td>kizzyj1234</td>
+                    <td>kizzyj@mymail.com</td>
+                    <td>
+                      <select name="account-status" class="account-status">
+                        <option value="active">active</option>
+                        <option value="dormant">dormant</option>
+                      </select>
+                    </td>
+                  </tr>
                 </table>
               </div>
             </div>
+          </div>
         </div>
       </section>
     </div>
@@ -120,14 +142,43 @@
 
     <!-- Delete Account Modal -->
     <div class="bg-delete-account-modal">
-        <div class="content-modal admin-modal">
-          <p>You are about to delete an account</p>
-          <div class="btns">
-              <button class="btn-cancel">Cancel</button>
-              <button class="btn-confirm">Confirm</button>
-          </div>
+      <div class="content-modal admin-modal">
+        <p>You are about to delete an account</p>
+        <div class="btns">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-confirm">Confirm</button>
         </div>
       </div>
+    </div>
+
+    <!-- Add a user modal -->
+    <div class="bg-add-user-account-modal">
+      <div class="content-modal user-account-modal">
+        <div class="signup-header">
+          <h1 class="signup">ADD A USER</h1>
+          <div class="modal-close">+</div>
+        </div>
+        <form class="signup-form">
+          <label for="firstName">FIRST NAME</label>
+          <input type="text" required="required" />
+          <label for="lastName">LAST NAME</label>
+          <input type="text" required="required" />
+          <label for="email">EMAIL</label>
+          <input type="email" required="required" />
+          <label for="password">PASSWORD</label>
+          <input type="password" required="required" />
+          <label for="accountType">ACCOUNT TYPE</label>
+          <select name="account-type">
+            <option value="" disabled selected hidden
+              >Select Account Type</option
+            >
+            <option value="current">Admin</option>
+            <option value="savings">Cashier</option>
+          </select>
+          <button class="formBtn formBtnSignup" type="submit">Signup</button>
+        </form>
+      </div>
+    </div>
 
     <script src="./js/admin.js"></script>
   </body>

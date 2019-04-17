@@ -28,12 +28,12 @@ debitAccount.addEventListener('click', () => {
   creditDebitModal.classList.add('modal-active');
   transactionTitle.innerText = 'DEBIT ACCOUNT';
   creditAmount.innerText = 'AMOUNT TO DEBIT';
-  creditBtn.innerText = 'Debit Account';
+  // creditBtn.innerText = 'Debit Account';
 });
 
 closeCreditDebitAcctModal.addEventListener('click', () => {
   creditDebitModal.classList.remove('modal-active');
   transactionTitle.innerText = 'CREDIT ACCOUNT';
   creditAmount.innerText = 'AMOUNT TO CREDIT';
-  creditBtn.innerText = 'Credit Account';
+  // creditBtn.innerText = 'Credit Account';
 });

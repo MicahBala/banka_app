@@ -16,6 +16,11 @@ const title = document.querySelector('.header-admin-area-display');
 const btnCancel = document.querySelector('.btn-cancel');
 const btnConfirm = document.querySelector('.btn-confirm');
 
+const addUserMenu = document.querySelector('.header-admin-area-add-user');
+const addUserModal = document.querySelector('.bg-add-user-account-modal');
+
+const closeModal = document.querySelector('.modal-close');
+
 users.addEventListener('click', () => {
   accountsTable.classList.remove('show-table');
   usersTable.classList.remove('hide-table');
@@ -54,4 +59,12 @@ btnCancel.addEventListener('click', () => {
 
 btnConfirm.addEventListener('click', () => {
   modal.classList.remove('modal-active');
+});
+
+addUserMenu.addEventListener('click', () => {
+  addUserModal.classList.add('modal-active');
+});
+
+closeModal.addEventListener('click', () => {
+  addUserModal.classList.remove('modal-active');
 });

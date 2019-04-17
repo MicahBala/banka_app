@@ -15,6 +15,7 @@
   --dark: rgba(0, 0, 0, 0.6);
   --gray: #8a8ca5;
   --light-gray: #e7e7e8;
+  --primary: rgb(116, 116, 241);
 }
 
 html {
@@ -150,7 +151,8 @@ footer {
 .bg-transaction-modal,
 .bg-cashier-modal,
 .bg-credit-debit-modal,
-.bg-delete-account-modal {
+.bg-delete-account-modal,
+.bg-add-user-account-modal {
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
   top: 0;
@@ -162,14 +164,19 @@ footer {
   visibility: hidden;
 }
 
-.content-modal {
+.content-modal,
+.content-transaction-modal {
   background: var(--light-gray);
-  width: 35%;
+  width: 40%;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.content-transaction-modal {
+  width: 50%;
 }
 
 .modal-active {
@@ -218,14 +225,18 @@ footer {
 }
 
 .login-form,
-.signup-form {
+.signup-form,
+.create-account-form,
+.credit-debit-account-form {
   padding: 0 0 2rem 2rem;
   width: 90%;
 }
 
 .signup-form input,
+.signup-form select,
 .signup-form button,
 .login-form input,
+.login-form select,
 .login-form button,
 .create-account-form input,
 .create-account-form select,
@@ -242,7 +253,7 @@ footer {
 .create-account-form input:focus,
 .create-account-form select:focus {
   outline: 0;
-  box-shadow: 0 0 0 1px rgb(116, 116, 241);
+  box-shadow: 0 0 0 1px var(--primary);
 }
 
 .signup-form label,
@@ -270,7 +281,7 @@ footer {
 .login-form button,
 .create-account-form button,
 .credit-debit-account-form button {
-  background-color: rgb(116, 116, 241);
+  background-color: var(--primary);
   color: var(--light-gray);
   cursor: pointer;
 }
@@ -290,7 +301,7 @@ footer {
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: #dce3f3;
+  background-color: #bcccf1;
 }
 
 .sidebar {
@@ -311,46 +322,47 @@ footer {
 }
 
 .sidebar a:hover {
-  background-color: #dce3f3;
+  background-color: #bcccf1;
 }
 
 .sidebar .active-menu {
-  background-color: #dce3f3;
+  background-color: #bcccf1;
   color: rgb(116, 116, 241);
 }
 
 .account-summary {
-  padding: 0.5rem;
-  margin: 0 0 2rem 2rem;
   line-height: 2rem;
-  display: flex;
-  flex-direction: column;
+  margin: 3rem 0 5rem 0;
 }
 
-.account-summary span {
-  padding: 0.5rem 0 0.5rem 1rem;
+.account-summary p {
+  display: inline;
+  padding: 2rem;
   background-color: #fff;
   border-radius: 5px;
-  margin: 0.3rem 0;
-  width: 20rem;
+  margin: 0 1rem;
 }
 
-.account-summary span:hover {
+.account-summary p {
   font-weight: bold;
+}
+
+.main-area {
+  margin: 0 auto;
 }
 .main-area h1 {
   margin: 2rem 0 0 2rem;
   font-size: 2rem;
 }
 
-.account-summary span {
+.account-summary p {
   color: var(--dark);
 }
 
 .transaction-area {
   background-color: #fff;
   padding: 1rem;
-  margin: 2rem;
+  margin: 2rem auto;
 }
 
 .transaction-table {
@@ -361,7 +373,9 @@ footer {
 .transaction-table,
 th,
 td {
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  width: 100%;
 }
 
 td {
@@ -369,15 +383,11 @@ td {
 }
 
 .transaction-table th {
-  background-color: #dce3f3;
-}
-
-.transaction-table tr:hover {
-  background-color: #dce3f3;
+  background-color: #bcccf1;
 }
 
 .transaction-table tr {
-  border-bottom: solid 1px #dce3f3;
+  border-bottom: solid 1px #bcccf1;
 }
 
 .footer-dashboard {
@@ -386,11 +396,21 @@ td {
   justify-content: space-between;
 }
 
+.viewTransaction {
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.viewTransaction:hover {
+  color: var(--primary);
+  font-weight: bold;
+}
+
 /* Cashier page */
 
 .searchbox {
-  background-color: #dce3f3;
-  width: 40%;
+  background-color: #bcccf1;
+  width: 70%;
   border-radius: 5px;
   padding: 1rem;
   margin: 2rem;
@@ -466,11 +486,20 @@ td {
 .btn-cancel {
   background-color: green;
   color: #fff;
-  /* margin-right: 1rem; */
 }
 
 .btn-confirm {
   background-color: red;
   color: #fff;
-  /* margin-left: 1rem; */
+}
+
+.account-status {
+  border: solid 1px var(--primary);
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  color: var(--dark);
+}
+
+.delete-account:hover {
+  color: var(--primary);
 }

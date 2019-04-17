@@ -4,7 +4,7 @@ const btnNewAccount = document.querySelector('.create-new-account');
 const newAccountModal = document.querySelector('.bg-modal');
 const closeModal = document.querySelector('.modal-close');
 
-const transactionHistory = document.querySelector('.viewTransaction');
+const transactionHistory = document.querySelectorAll('.viewTransaction');
 const transactionModal = document.querySelector('.bg-transaction-modal');
 const closeTransactionModal = document.querySelector(
   '.modal-transaction-close'
@@ -26,9 +26,12 @@ closeModal.addEventListener('click', () => {
 });
 
 // Transaction Modal
-// transactionHistory.addEventListener('click', () => {
-//   transactionModal.classList.add('modal-active');
-// });
+transactionHistory.forEach(history => {
+  history.addEventListener('click', () => {
+    console.log('You clicked');
+    transactionModal.classList.add('modal-active');
+  });
+});
 
 closeTransactionModal.addEventListener('click', () => {
   transactionModal.classList.remove('modal-active');
