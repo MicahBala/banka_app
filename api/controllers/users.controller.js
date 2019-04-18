@@ -1,19 +1,20 @@
 import usersDb from '../db/users.db';
+import pool from '../db/db_connect';
 
 class UsersController {
   // Signup Users
   signupUsers(req, res) {
     if (
-      !req.body.email
-      || !req.body.firstName
-      || !req.body.lastName
-      || !req.body.password
+      !req.body.email ||
+      !req.body.firstName ||
+      !req.body.lastName ||
+      !req.body.password
     ) {
       return res.status(404).json({
         status: 404,
         error: {
-          message: 'email, firstName, lastName, password fields required',
-        },
+          message: 'email, firstName, lastName, password fields required'
+        }
       });
     }
 
@@ -24,7 +25,7 @@ class UsersController {
       lastName: req.body.lastName,
       password: req.body.password,
       type: 'user',
-      isAdmin: false,
+      isAdmin: false
     };
 
     usersDb.push(user);
@@ -33,8 +34,8 @@ class UsersController {
       status: 200,
       data: {
         message: 'user registered successfully',
-        user: usersDb[usersDb.length - 1],
-      },
+        user: usersDb[usersDb.length - 1]
+      }
     });
   }
 
@@ -44,8 +45,8 @@ class UsersController {
       return res.status(404).json({
         status: 404,
         error: {
-          message: 'email and password required',
-        },
+          message: 'email and password required'
+        }
       });
     }
 
@@ -53,15 +54,15 @@ class UsersController {
       return res.status(404).json({
         status: 404,
         error: {
-          message: 'database is empty, Create an account',
-        },
+          message: 'database is empty, Create an account'
+        }
       });
     }
 
-    return usersDb.find((user) => {
+    return usersDb.find(user => {
       if (
-        user.email === req.body.email
-        && user.password === req.body.password
+        user.email === req.body.email &&
+        user.password === req.body.password
       ) {
         return res.status(200).send({
           status: 200,
@@ -71,16 +72,16 @@ class UsersController {
               id: user.id,
               firstName: user.firstName,
               lastName: user.lastName,
-              email: user.email,
-            },
-          },
+              email: user.email
+            }
+          }
         });
       }
       return res.status(404).json({
         status: 404,
         error: {
-          message: 'user does not exist!',
-        },
+          message: 'user does not exist!'
+        }
       });
     });
   }
