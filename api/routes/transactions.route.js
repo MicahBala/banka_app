@@ -1,6 +1,5 @@
 import express from 'express';
 import transactionsController from '../controllers/transactions.controller';
-import transactions from '../middlewares/transactions';
 
 const router = express.Router();
 
@@ -14,6 +13,12 @@ router.post(
 router.post(
   '/api/v1/transactions/:account_number/debit',
   transactionsController.debitAccount
+);
+
+// View account transaction history
+router.get(
+  '/api/v1/accounts/:account_number/transactions',
+  transactionsController.getAccountTransactions
 );
 
 export default router;

@@ -91,6 +91,24 @@ class TransactionsController {
       });
     }
   }
+
+  // Get account transaction history
+  async getAccountTransactions(req, res) {
+    // Back from services file
+    const transactionResult = await transactionsServices.transactionHistory(
+      req.params.account_number
+    );
+
+    // TODO: Use rest to destructure the transactions result
+    // Remove the cashire field before returning other fields
+
+    res.status(200).json({
+      status: 200,
+      data: {
+        message: transactionResult.rows
+      }
+    });
+  }
 }
 
 const transactionsController = new TransactionsController();

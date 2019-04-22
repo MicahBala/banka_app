@@ -127,6 +127,25 @@ class TransactionsServices {
 
     return debitTransactionResult;
   }
+
+  async transactionHistory(transactionAccountNumber) {
+    let selectTransactionHistoryResult;
+
+    // query the accounts table
+    const selectQuery =
+      'SELECT * FROM banka_transactions WHERE user_account_number = $1';
+
+    try {
+      selectTransactionHistoryResult = await pool.query(selectQuery, [
+        transactionAccountNumber
+      ]);
+    } catch (error) {
+      return error;
+    }
+    // console.log(selectTransactionHistoryResult.rows);
+
+    return selectTransactionHistoryResult;
+  }
 }
 
 const transactionsServices = new TransactionsServices();
