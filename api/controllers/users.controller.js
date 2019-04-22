@@ -1,88 +1,87 @@
-import usersDb from '../db/users.db';
+import Joi from 'joi';
+import usersServices from '../services/users.services';
 
 class UsersController {
   // Signup Users
-  signupUsers(req, res) {
-    if (
-      !req.body.email
-      || !req.body.firstName
-      || !req.body.lastName
-      || !req.body.password
-    ) {
+  async signupUsers(req, res) {
+    const schema = {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      password: Joi.string()
+        .min(5)
+        .required(),
+      email: Joi.string(),
+      type: Joi.string().required(),
+      isAdmin: Joi.bool()
+    };
+
+    // Validting body request
+    const userSignup = Joi.validate(req.body, schema);
+
+    if (userSignup.error) {
+      res.status(404).send(userSignup.error.message);
+      return;
+    }
+
+    // Back from services file
+    const signupResult = await usersServices.signupUser(req.body);
+
+    if (signupResult.name === 'error') {
       return res.status(404).json({
         status: 404,
-        error: {
-          message: 'email, firstName, lastName, password fields required',
-        },
+        data: {
+          message: signupResult.detail
+        }
       });
     }
 
-    const user = {
-      id: usersDb.length + 1,
-      email: req.body.email,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      password: req.body.password,
-      type: 'user',
-      isAdmin: false,
-    };
-
-    usersDb.push(user);
-
-    return res.status(200).json({
-      status: 200,
-      data: {
-        message: 'user registered successfully',
-        user: usersDb[usersDb.length - 1],
-      },
-    });
+    if (signupResult.rowCount > 0) {
+      return res.status(200).json({
+        status: 404,
+        data: {
+          message: 'Account created Sucessfully',
+          user: signupResult.rows[0]
+        }
+      });
+    }
   }
 
   // Signin User
-  signinUser(req, res) {
-    if (!req.body.email || !req.body.password) {
-      return res.status(404).json({
+  async signinUsers(req, res) {
+    const schema = {
+      email: Joi.string().required(),
+      password: Joi.string()
+        .min(5)
+        .required()
+    };
+
+    // Validting body request
+    const userSignin = Joi.validate(req.body, schema);
+    if (userSignin.error) {
+      return res.status(404).send(userSignin.error.message);
+    }
+
+    // Back from services file
+    const signinResult = await usersServices.signinUser(req.body);
+
+    if (signinResult.rowCount > 0) {
+      return res.status(200).json({
         status: 404,
-        error: {
-          message: 'email and password required',
-        },
+        data: {
+          message: 'Login Sucessfull',
+          user: signinResult.rows[0]
+        }
       });
     }
 
-    if (usersDb.length === 0) {
+    if (signinResult.name === undefined) {
       return res.status(404).json({
         status: 404,
-        error: {
-          message: 'database is empty, Create an account',
-        },
+        data: {
+          message: 'Email or password doesnt match'
+        }
       });
     }
-
-    return usersDb.find((user) => {
-      if (
-        user.email === req.body.email
-        && user.password === req.body.password
-      ) {
-        return res.status(200).send({
-          status: 200,
-          data: {
-            message: 'user logged in successfully!',
-            loginUser: {
-              id: user.id,
-              firstName: user.firstName,
-              lastName: user.lastName,
-              email: user.email,
-            },
-          },
-        });
-      }
-      return res.status(404).json({
-        status: 404,
-        error: {
-          message: 'user does not exist!',
-        },
-      });
-    });
   }
 }
 
