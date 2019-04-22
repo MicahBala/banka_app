@@ -1,11 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import router from './routes/index';
+// import expressValidator from 'express-validator';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(expressValidator);
 app.use(router);
 
 app.use((req, res, next) => {
