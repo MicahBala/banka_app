@@ -1,101 +1,139 @@
-import uuidv1 from 'uuid/v1';
-import transactionDb from '../db/transaction.db';
+import Joi from 'joi';
+import transactionsServices from '../services/transaction.services';
 
 class TransactionsController {
   // Credit account
-  creditAccount(req, res) {
-    if (!req.body.amount) {
+  async creditAccount(req, res) {
+    const schema = {
+      transactionType: Joi.string().required(),
+      cashier: Joi.number().required(),
+      amount: Joi.number().required()
+    };
+
+    const validateCreditTransaction = Joi.validate(req.body, schema);
+
+    if (validateCreditTransaction.error) {
+      res.status(404).send(validateCreditTransaction.error.message);
+      return;
+    }
+
+    // Back from services file
+    const creditResult = await transactionsServices.userCreditTransaction(
+      parseFloat(req.params.account_number),
+      req.body
+    );
+
+    if (creditResult === undefined) {
       return res.status(404).json({
         status: 404,
-        error: {
-          message: 'amount required',
-        },
+        data: {
+          message: 'Account doesnt exist'
+        }
       });
     }
 
-    const transactionCredit = {
-      transId: uuidv1(),
-      acctNum: req.params.acctNum,
-      amt: parseFloat(req.body.amount),
-      cashier: uuidv1(),
-      transType: 'credit',
-      accountBalance: parseFloat(0) + parseFloat(req.body.amount),
+    if (creditResult.rowCount > 0) {
+      return res.status(200).json({
+        status: 200,
+        data: {
+          message: 'Account Credited Sucessfully',
+          user: creditResult.rows[0]
+        }
+      });
+    }
+  }
+  // Debit account
+  async debitAccount(req, res) {
+    const schema = {
+      transactionType: Joi.string().required(),
+      cashier: Joi.number().required(),
+      amount: Joi.number().required()
     };
 
-    transactionDb.push(transactionCredit);
+    const validateDebitTransaction = Joi.validate(req.body, schema);
 
-    const transactionValue = Object.values(transactionCredit);
+    if (validateDebitTransaction.error) {
+      res.status(404).send(validateDebitTransaction.error.message);
+      return;
+    }
 
-    return res.status(200).json({
+    // Back from services file
+    const debitResult = await transactionsServices.userDebitTransaction(
+      req.params.account_number,
+      req.body
+    );
+
+    if (debitResult === 'Insufficient Funds') {
+      return res.status(406).json({
+        status: 404,
+        data: {
+          message: 'Insufficient Funds'
+        }
+      });
+    }
+
+    if (debitResult === undefined) {
+      return res.status(404).json({
+        status: 404,
+        data: {
+          message: 'Account doesnt exist'
+        }
+      });
+    }
+
+    if (debitResult.rowCount > 0) {
+      return res.status(200).json({
+        status: 404,
+        data: {
+          message: 'Account Debited Sucessfullyl',
+          user: debitResult.rows[0]
+        }
+      });
+    }
+  }
+
+  // Get account transaction history
+  async getAccountTransactions(req, res) {
+    // Back from services file
+    const transactionResult = await transactionsServices.transactionHistory(
+      req.params.account_number
+    );
+
+    // TODO: Use rest to destructure the transactions result
+    // Remove the cashire field before returning other fields
+
+    res.status(200).json({
       status: 200,
       data: {
-        transactionId: transactionValue[0],
-        accountNumber: transactionValue[1],
-        amount: transactionValue[2],
-        cashier: transactionValue[3],
-        transactionType: transactionValue[4],
-        accountBalance: transactionValue[5],
-      },
+        message: transactionResult.rows
+      }
     });
   }
 
-  // Debit account
-  debitAccount(req, res) {
-    if (!req.body.amount) {
+  // Get account transaction history
+  async getSingleTransaction(req, res) {
+    // Back from services file
+    const singleTransactionResult = await transactionsServices.singleTransactionHistory(
+      req.params.transaction_id
+    );
+
+    if (singleTransactionResult === undefined) {
       return res.status(404).json({
         status: 404,
-        error: {
-          message: 'amount required',
-        },
+        data: {
+          message: 'transaction doesnt exist'
+        }
       });
     }
 
-    const prevTransaction = transactionDb.find(transaction => transaction);
-
-    if (!prevTransaction) {
-      return res.status(404).json({
+    if (singleTransactionResult.rowCount > 0) {
+      return res.status(200).json({
         status: 404,
-        error: {
-          message: 'you must credit account',
-        },
+        data: {
+          message: singleTransactionResult.rows
+        }
       });
     }
-
-    const transactionValue = Object.values(prevTransaction);
-
-    if (transactionValue[5] < parseFloat(req.body.amount)) {
-      return res.status(404).json({
-        status: 404,
-        error: {
-          message: 'Insufficient funds',
-        },
-      });
-    }
-
-    const transactionDebit = {
-      transId: transactionValue[0],
-      acctNum: transactionValue[1],
-      amt: parseFloat(req.body.amount),
-      cashier: transactionValue[3],
-      transType: 'debit',
-      accountBalance: transactionValue[5] - parseFloat(req.body.amount),
-    };
-
-    transactionDb.push(transactionDebit);
-
-    const debitValue = Object.values(transactionDebit);
-
-    return res.status(200).json({
-      status: 200,
-      data: {
-        transactionId: debitValue[0],
-        accountNumber: debitValue[1],
-        amount: debitValue[2],
-        cashier: debitValue[3],
-        transactionType: debitValue[4],
-        accountBalance: debitValue[5],
-      },
-    });
   }
 }
 

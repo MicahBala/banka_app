@@ -7,6 +7,6 @@ const router = express.Router();
 router.post('/api/v1/auth/signup', usersController.signupUsers);
 
 // Signin new user
-router.post('/api/v1/auth/signin', usersController.signinUser);
+router.post('/api/v1/auth/signin', usersController.signinUsers);
 
 export default router;
