@@ -7,9 +7,15 @@ const router = express.Router();
 router.post('/api/v1/accounts', accountsController.createAccount);
 
 // Update user bank account status
-router.patch('/api/v1/accounts/:acctNum', accountsController.accountStatus);
+router.patch(
+  '/api/v1/accounts/:account_number',
+  accountsController.accountStatus
+);
 
 // Delete user bank account
-router.delete('/api/v1/accounts/:acctNum', accountsController.deleteAccount);
+router.delete(
+  '/api/v1/accounts/:account_number',
+  accountsController.deleteAccount
+);
 
 export default router;
