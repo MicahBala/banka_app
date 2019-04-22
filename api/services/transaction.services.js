@@ -146,6 +146,29 @@ class TransactionsServices {
 
     return selectTransactionHistoryResult;
   }
+
+  // Get a single transaction
+  async singleTransactionHistory(singleTransactionId) {
+    let selectSingleTransactionHistoryResult;
+
+    // query the accounts table
+    const selectQuery =
+      'SELECT * FROM banka_transactions WHERE transaction_id = $1';
+
+    try {
+      selectSingleTransactionHistoryResult = await pool.query(selectQuery, [
+        singleTransactionId
+      ]);
+    } catch (error) {
+      return error;
+    }
+
+    if (selectSingleTransactionHistoryResult.rowCount < 1) {
+      return undefined;
+    }
+
+    return selectSingleTransactionHistoryResult;
+  }
 }
 
 const transactionsServices = new TransactionsServices();

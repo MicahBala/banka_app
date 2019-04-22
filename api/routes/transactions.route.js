@@ -21,4 +21,10 @@ router.get(
   transactionsController.getAccountTransactions
 );
 
+// View a single transaction
+router.get(
+  '/api/v1/transactions/:transaction_id',
+  transactionsController.getSingleTransaction
+);
+
 export default router;

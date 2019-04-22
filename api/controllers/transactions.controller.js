@@ -109,6 +109,32 @@ class TransactionsController {
       }
     });
   }
+
+  // Get account transaction history
+  async getSingleTransaction(req, res) {
+    // Back from services file
+    const singleTransactionResult = await transactionsServices.singleTransactionHistory(
+      req.params.transaction_id
+    );
+
+    if (singleTransactionResult === undefined) {
+      return res.status(404).json({
+        status: 404,
+        data: {
+          message: 'transaction doesnt exist'
+        }
+      });
+    }
+
+    if (singleTransactionResult.rowCount > 0) {
+      return res.status(200).json({
+        status: 404,
+        data: {
+          message: singleTransactionResult.rows
+        }
+      });
+    }
+  }
 }
 
 const transactionsController = new TransactionsController();
