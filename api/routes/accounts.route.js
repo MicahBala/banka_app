@@ -18,4 +18,7 @@ router.delete(
   accountsController.deleteAccount
 );
 
+// Get specific user bank account
+router.get('/api/v1/accounts/:account_number', accountsController.getAccounts);
+
 export default router;

@@ -1,5 +1,6 @@
 import pool from '../services/db_connect';
 import Joi from 'joi';
+import accountsServices from '../services/accounts.services';
 
 class AccountsController {
   // Create bank account
@@ -108,6 +109,30 @@ class AccountsController {
           status: 'Account deleted successfully'
         }
       });
+    });
+  }
+
+  // Get specific accounts
+  async getAccounts(req, res) {
+    // Back from services file
+    const getAccountResult = await accountsServices.getUserAccount(
+      req.params.account_number
+    );
+
+    if (getAccountResult === undefined) {
+      return res.status(404).json({
+        status: 404,
+        data: {
+          message: 'account doesnt exist'
+        }
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: {
+        message: getAccountResult.rows[0]
+      }
     });
   }
 }
