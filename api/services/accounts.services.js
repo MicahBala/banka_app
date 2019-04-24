@@ -22,22 +22,37 @@ class AccountsServices {
   }
 
   // Get all accounts
-  async getAllAccount() {
-    let allAccountQueryResult;
+  async getAllAccount(accountStatus) {
+    let accountQueryResult;
+
+    // console.log(accountStatus.status);
+    if (accountStatus.status === 'active') {
+      const selectQuery =
+        'SELECT * FROM banka_accounts WHERE account_status = $1';
+      try {
+        accountQueryResult = await pool.query(selectQuery, [
+          accountStatus.status
+        ]);
+      } catch (error) {
+        return error;
+      }
+
+      return accountQueryResult;
+    }
 
     const selectQuery = 'SELECT * FROM banka_accounts';
 
     try {
-      allAccountQueryResult = await pool.query(selectQuery);
+      accountQueryResult = await pool.query(selectQuery);
     } catch (error) {
       return error;
     }
 
-    if (allAccountQueryResult.rows === undefined) {
+    if (accountQueryResult.rows === undefined) {
       return undefined;
     }
 
-    return allAccountQueryResult;
+    return accountQueryResult;
   }
 }
 

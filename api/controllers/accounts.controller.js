@@ -139,7 +139,7 @@ class AccountsController {
   // Get all accounts
   async getAllAccounts(req, res) {
     // Back from services file
-    const getAccountResult = await accountsServices.getAllAccount();
+    const getAccountResult = await accountsServices.getAllAccount(req.query);
 
     if (getAccountResult === undefined) {
       return res.status(404).json({
