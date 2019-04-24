@@ -1,87 +1,112 @@
-import uuidv1 from 'uuid/v1';
-import accountsDb from '../db/accounts.db';
+import pool from '../services/db_connect';
+import Joi from 'joi';
 
 class AccountsController {
   // Create bank account
   createAccount(req, res) {
-    if (
-      !req.body.firstName
-      || !req.body.lastName
-      || !req.body.email
-      || !req.body.type
-    ) {
-      return res.status(404).json({
-        status: 404,
-        error: {
-          message: 'firstName, lastName, email, and type fields are required',
-        },
-      });
-    }
-
-    const account = {
-      accountNumber: uuidv1(),
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      type: req.body.type,
-      openingBalance: 0,
-      status: 'active',
+    const schema = {
+      type: Joi.string().required(),
+      owner: Joi.number().required()
     };
 
-    accountsDb.push(account);
+    // Validting body request
+    const account = Joi.validate(req.body, schema);
 
-    return res.status(200).json({
-      status: 200,
-      data: {
-        message: 'Bank Account created successfully',
-        account: accountsDb,
-      },
+    if (account.error) {
+      res.status(406).send(account.error.message);
+      return;
+    }
+
+    const { type, owner } = req.body;
+    const account_number = Math.floor(1000000000 + Math.random() * 9000000000);
+    const insertQuery =
+      'INSERT INTO banka_accounts (account_number, type_of_account, account_balance, account_status, owner) VALUES($1, $2, $3, $4, $5) RETURNING *';
+
+    const values = [account_number, type, 0.0, 'active', owner];
+
+    return pool.query(insertQuery, values, (error, result) => {
+      if (error) {
+        res.status(404).json({
+          status: 404,
+          data: {
+            message: error
+          }
+        });
+      }
+
+      return res.status(200).json({
+        status: 201,
+        data: {
+          meassage: `Account created successfully`,
+          accountNumber: result.rows[0].account_number,
+          email: result.rows[0].email,
+          type: result.rows[0].type_of_account,
+          openingBalance: result.rows[0].account_balance
+        }
+      });
     });
   }
 
-  //   Update bank account status
+  // Update bank account status
   accountStatus(req, res) {
-    const accountToUpdate = accountsDb.find(
-      account => account.accountNumber === req.params.acctNum,
-    );
+    const accountNumber = parseInt(req.params.account_number);
 
-    if (!accountToUpdate) {
-      return res.status(404).json({
-        status: 404,
-        error: {
-          message: 'account not found',
-        },
-      });
+    const schema = {
+      status: Joi.string().required()
+    };
+
+    const status = Joi.validate(req.body, schema);
+
+    if (status.error) {
+      res.status(404).send(status.error.message);
+      return;
     }
 
-    accountToUpdate.status = req.body.status;
+    const updateQuery =
+      'UPDATE banka_accounts SET account_status = $1 WHERE account_number = $2';
+    const values = [req.body.status, accountNumber];
 
-    return res.status(200).json({
-      status: 200,
-      data: {
-        message: `user account is now ${accountToUpdate.status}`,
-      },
+    return pool.query(updateQuery, values, (error, result) => {
+      if (error) {
+        res.status(404).json({
+          status: 404,
+          data: {
+            message: error
+          }
+        });
+      }
+
+      res.status(200).json({
+        status: 200,
+        data: {
+          accountNumber: accountNumber,
+          status: `Account is ${req.body.status}`
+        }
+      });
     });
   }
 
   //   Delete bank account
   deleteAccount(req, res) {
-    accountsDb.map((delAccount, index) => {
-      if (delAccount.accountNumber === req.params.acctNum) {
-        accountsDb.splice(index, 1);
+    const accountNumber = parseInt(req.params.account_number);
 
-        return res.status(200).json({
-          status: 200,
+    const deleteQuery = 'DELETE FROM banka_accounts WHERE account_number = $1';
+
+    return pool.query(deleteQuery, [accountNumber], (error, result) => {
+      if (error) {
+        res.status(404).json({
+          status: 404,
           data: {
-            message: 'Account successfully deleted!',
-          },
+            message: error
+          }
         });
       }
-      return res.status(404).json({
-        status: 404,
-        error: {
-          message: 'Account not found',
-        },
+
+      res.status(200).json({
+        status: 200,
+        data: {
+          status: 'Account deleted successfully'
+        }
       });
     });
   }
