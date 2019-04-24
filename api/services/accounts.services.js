@@ -48,6 +48,20 @@ class AccountsServices {
       return error;
     }
 
+    if (accountStatus.status === 'dormant') {
+      const selectQuery =
+        'SELECT * FROM banka_accounts WHERE account_status = $1';
+      try {
+        accountQueryResult = await pool.query(selectQuery, [
+          accountStatus.status
+        ]);
+      } catch (error) {
+        return error;
+      }
+
+      return accountQueryResult;
+    }
+
     if (accountQueryResult.rows === undefined) {
       return undefined;
     }
