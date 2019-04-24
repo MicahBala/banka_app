@@ -135,6 +135,28 @@ class AccountsController {
       }
     });
   }
+
+  // Get all accounts
+  async getAllAccounts(req, res) {
+    // Back from services file
+    const getAccountResult = await accountsServices.getAllAccount();
+
+    if (getAccountResult === undefined) {
+      return res.status(404).json({
+        status: 404,
+        data: {
+          message: 'Invalid Parameters'
+        }
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: {
+        message: getAccountResult.rows
+      }
+    });
+  }
 }
 
 const accountsController = new AccountsController();

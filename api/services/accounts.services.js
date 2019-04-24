@@ -1,6 +1,7 @@
 import pool from './db_connect';
 
 class AccountsServices {
+  // Get single user account
   async getUserAccount(userAccountNumber) {
     let accountQueryResult;
 
@@ -18,6 +19,25 @@ class AccountsServices {
     }
 
     return accountQueryResult;
+  }
+
+  // Get all accounts
+  async getAllAccount() {
+    let allAccountQueryResult;
+
+    const selectQuery = 'SELECT * FROM banka_accounts';
+
+    try {
+      allAccountQueryResult = await pool.query(selectQuery);
+    } catch (error) {
+      return error;
+    }
+
+    if (allAccountQueryResult.rows === undefined) {
+      return undefined;
+    }
+
+    return allAccountQueryResult;
   }
 }
 
