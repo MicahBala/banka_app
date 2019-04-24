@@ -7,6 +7,12 @@ const router = express.Router();
 router.post('/api/v1/auth/signup', usersController.signupUsers);
 
 // Signin new user
-router.post('/api/v1/auth/signin', usersController.signinUser);
+router.post('/api/v1/auth/signin', usersController.signinUsers);
+
+// Get all accounts for a specific user
+router.get(
+  '/api/v1/user/:user_email_address/accounts',
+  usersController.getAllAccounts
+);
 
 export default router;
