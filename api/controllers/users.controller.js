@@ -83,6 +83,30 @@ class UsersController {
       });
     }
   }
+
+  // Get all accounts
+  async getAllAccounts(req, res) {
+    // Back from services file
+    const getAllAccountResult = await usersServices.getAllAccount(
+      req.params.user_email_address
+    );
+
+    if (getAllAccountResult.rows < 1) {
+      return res.status(404).json({
+        status: 404,
+        data: {
+          message: 'user doesnt have an account or user doesnt exist'
+        }
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      data: {
+        message: getAllAccountResult.rows[0]
+      }
+    });
+  }
 }
 
 const usersController = new UsersController();

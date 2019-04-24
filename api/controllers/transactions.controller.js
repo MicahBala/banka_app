@@ -128,7 +128,7 @@ class TransactionsController {
 
     if (singleTransactionResult.rowCount > 0) {
       return res.status(200).json({
-        status: 404,
+        status: 200,
         data: {
           message: singleTransactionResult.rows
         }

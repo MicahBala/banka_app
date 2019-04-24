@@ -36,9 +36,27 @@ class UsersServices {
     } catch (error) {
       return error;
     }
-    // console.log(signinQueryResult.rows[0]);
 
     return signinQueryResult;
+  }
+
+  async getAllAccount(userEmailAddress) {
+    let allAccountsQueryResult;
+
+    // Query both tables using JOIN based on primary and foreign key
+    // Select the fields to display from the query
+    const selectQuery =
+      'SELECT banka_accounts.account_number, banka_accounts.type_of_account, banka_accounts.account_status, banka_accounts.account_balance, banka_accounts.created_on FROM banka_accounts JOIN banka_users ON banka_accounts.owner = banka_users.id WHERE banka_users.email = $1';
+
+    try {
+      allAccountsQueryResult = await pool.query(selectQuery, [
+        userEmailAddress
+      ]);
+    } catch (error) {
+      return error;
+    }
+
+    return allAccountsQueryResult;
   }
 }
 
